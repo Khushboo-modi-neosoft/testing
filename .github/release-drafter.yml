@@ -1,67 +1,36 @@
-name-template: 'v$RESOLVED_VERSION'
-tag-template: 'v$RESOLVED_VERSION'
+name-template: "v$RESOLVED_VERSION"
+tag-template: "v$RESOLVED_VERSION"
 categories:
-  - title: '🚀 Features'
+  - title: "🚀 Features"
     labels:
-      - 'feature'
-  - title: '🐛 Bug Fixes'
+      - "feature"
+  - title: "🐛 Bug Fixes"
     labels:
-      - 'bugfix'
-      - 'hotfix'
-  - title: '🧰 Maintenance'
-    labels:
-      - 'refactor'
-      - 'enhancement'
-      - 'chore'
-  - title: '📃 Documentation'
-    label: 'documentation'
-exclude-labels:
-  - 'skip-changelog'
-replacers:
-  - search: '/FN-(\d{1,4})/g'
-    replace: '[FN-$1](https://betconstruct.atlassian.net/browse/FN-$1)'
+      - "bugfix"
 autolabeler:
-  - label: 'bugfix'
+  - label: "bugfix"
     branch:
-      - '/bug(?:fix)?/'
-  - label: 'hotfix'
-    branch:
-      - '/hotfix\/.+/'
-  - label: 'enhancement'
-    branch:
-      - '/enhancement\/.+/'
-  - label: 'chore'
-    branch:
-      - '/chore\/.+/'
-  - label: 'refactor'
-    branch:
-      - '/refactor\/.+/'
-  - label: 'feature'
-    branch:
-      - '/feature\/.+/'
-  - label: 'release'
+      - "/bug(?:fix)?/"
+  - label: "release"
     branch:
       - '/release\/.+/'
-  - label: 'experimental'
+  - label: "skip-changelog"
     branch:
-      - '/experimental\/.+/'
-  - label: 'skip-changelog'
-    branch:
-      - '/(main|develop|experimental).*/'
+      - "/(develop|experimental).*/"
 version-resolver:
   major:
     labels:
-      - 'major'
+      - "major"
   minor:
     labels:
-      - 'release'
+      - "release"
   patch:
     labels:
-      - 'hotfix'
+      - "hotfix"
 publish: true
-latest: 'true'
+latest: "true"
 template: |
   ## Changes
 
   $CHANGES
-change-template: '* $TITLE'
+change-template: "* $TITLE"
