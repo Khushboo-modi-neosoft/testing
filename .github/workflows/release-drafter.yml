@@ -21,7 +21,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: release-drafter/release-drafter@v5
+        with:
+          config-name: release-drafter.yml
+          commitish: main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          commitish: main
