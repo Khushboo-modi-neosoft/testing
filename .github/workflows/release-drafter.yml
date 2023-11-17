@@ -4,11 +4,11 @@ on:
   push:
     branches:
       - main
-      - "releases/**"
+      - "release/**"
   pull_request:
     types: [opened, synchronize]
     branches:
-      - "releases/**"
+      - "release/**"
 
 permissions:
   contents: read
