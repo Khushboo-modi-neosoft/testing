@@ -4,10 +4,11 @@ on:
   push:
     branches:
       - main
+      - "releases/**"
   pull_request:
-    types: [opened]
+    types: [opened, synchronize]
     branches:
-      - "release/*"
+      - "releases/**"
 
 permissions:
   contents: read
@@ -20,7 +21,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: release-drafter/release-drafter@v5
-        with:
-          config-name: release-drafter.yml
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
