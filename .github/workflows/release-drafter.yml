@@ -5,11 +5,12 @@ on:
     branches:
       - main
       - "release/*"
-  pull_request:
+  pull_request_target:
     types: [opened, synchronize]
     branches:
       - main
       - "release/*"
+  pull_request:
 
 permissions:
   contents: read
@@ -24,6 +25,6 @@ jobs:
       - uses: release-drafter/release-drafter@v5
         with:
           config-name: release-drafter.yml
-          commitish: ${{ github.event.pull_request.base.ref }}
+          commitish: main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
